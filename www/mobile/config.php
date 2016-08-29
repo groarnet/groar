@@ -11,17 +11,17 @@ define("mnminclude", dirname(__FILE__).'/libs/');
 ini_set("include_path", '.:'.mnminclude.':'.mnmpath);
 
 $globals['basic_config'] = true; include('../config.php');
-$globals['site_name'] = 'Menéame reduced';
+$globals['site_name'] = 'groar reduced';
 
 // Specify you base url, "/" if is the root document
-// $globals['base_dir'] = '/meneame/';
+// $globals['base_dir'] = '/groar/';
 $globals['base_url'] = '/mobile/';
 
 //Specify the static web server, wiith port included, use same document root as the main server (i.e. base_url is used
 $globals['static_server'] = '';
-//$globals['static_server'] = 'http://static.meneame.net';
+//$globals['static_server'] = 'http://static.groar.net';
 
-//$globals['legal'] = globals['base_url'].'libs/ads/legal-meneame.php';
+//$globals['legal'] = globals['base_url'].'libs/ads/legal-groar.php';
 
 $globals['mobile_version'] = true; // Mark we are using mobile version
 

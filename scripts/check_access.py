@@ -319,10 +319,10 @@ if __name__ == '__main__':
 	parser.add_argument("--ban", "-b", action="store_true", help="Ban IPs")
 	parser.add_argument("-q", action="store_true", help="Quiet mode")
 	parser.add_argument("--syslog", "-s", type=int, help="Write a summary every x seconds")
-	parser.add_argument("--annotation", "-A", type=int, help="If syslog enabled, store in meneame.annotation the last X values")
+	parser.add_argument("--annotation", "-A", type=int, help="If syslog enabled, store in groar.annotation the last X values")
 	parser.add_argument("--dry", "-d", action="store_true", help="Do not store the ban in the DB")
 	parser.add_argument("--rate", "-r", type=int, default=15, help="Set the max number of connections per second, default 15")
-	parser.add_argument("--logfile", "-l", default="/var/log/meneame_access.log", help="Logfile pathname, default /var/log/meneame_access.log")
+	parser.add_argument("--logfile", "-l", default="/var/log/groar_access.log", help="Logfile pathname, default /var/log/groar_access.log")
 	parser.add_argument("--mail", "-m", help="Send email to this address when an IP is banned")
 	parser.add_argument("--showbad", action="store_true", help="Report bad format lines")
 	configuration = parser.parse_args()
@@ -331,7 +331,7 @@ if __name__ == '__main__':
 		f = open(os.devnull, 'w')
 		sys.stdout = f
 
-	syslog.openlog("meneame", syslog.LOG_NDELAY, syslog.LOG_USER)
+	syslog.openlog("groar", syslog.LOG_NDELAY, syslog.LOG_USER)
 	counter = 0
 	if configuration.syslog > 0:
 		syslogger = MySysLogger(configuration.syslog, configuration.annotation, configuration.q)

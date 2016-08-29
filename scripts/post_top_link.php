@@ -10,7 +10,7 @@ $site_name = $argv[1];
 $my_id = SitesMgr::get_id($site_name);
 
 if (! $my_id > 0) {
-	syslog(LOG_INFO, "Meneame, ".basename(__FILE__)." site not found $site_name");
+	syslog(LOG_INFO, "groar, ".basename(__FILE__)." site not found $site_name");
 	echo "No site id found\n";
 	die;
 }

@@ -157,7 +157,7 @@ function do_header($title) {
 	echo "	<image><title>".$title."</title><link>http://".get_server_name().post_get_base_url()."</link><url>http://".get_static_server_name().$globals['base_url']."img/common/eli-rss.png</url></image>\n";
 	echo '	<description>'._('Sitio colaborativo de publicación y comunicación entre blogs').'</description>'."\n";
 	echo '	<pubDate>'.date("r", $last_modified).'</pubDate>'."\n";
-	echo '	<generator>http://blog.meneame.net/</generator>'."\n";
+	echo '	<generator>http://blog.groar.net/</generator>'."\n";
 	echo '	<language>'.$dblang.'</language>'."\n";
 }
 

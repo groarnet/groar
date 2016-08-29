@@ -1,0 +1,10 @@
+<FeedFlareUnit>
+	<Catalog>
+		<Title>groar.net</Title>
+		<Description>send this post to groar.net</Description>
+	</Catalog>
+	<FeedFlare>
+		<Text>send to groar.net</Text>
+		<Link href="http://groar.net/submit.php?url=${link}"/>
+	</FeedFlare>
+</FeedFlareUnit>

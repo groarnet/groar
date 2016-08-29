@@ -1,13 +1,13 @@
 </div>
 
 <div id="footthingy">
-<p>menéame</p>
+<p>groar</p>
 <ul id="legalese">
 
 {# IMPORTANT: links change in every installation, CHANGE IT!!
  contact info #}
 
-{% if globals.is_meneame %}
+{% if globals.is_groar %}
 	<li><a href="{{ globals.legal }}">{% trans _('condiciones legales') %}</a>
 	&nbsp;&#47;&nbsp;<a href="{{ globals.legal }}#tos">{% trans _('de uso') %}</a>
 	&nbsp;&#47;&nbsp;<a href="{{ globals.legal }}#cookies">{% trans _('y de cookies') %}</a></li>
@@ -18,10 +18,10 @@
 		<a href="https://creativecommons.org/licenses/by-sa/3.0/">{% trans _('gráficos') %}</a>,&nbsp;
 		<a rel="license" href="https://creativecommons.org/licenses/by/3.0/es/">{% trans _('contenido') %}</a></li>
 		<li>&nbsp;&#47;&nbsp;<a href="https://validator.w3.org/nu/?doc={{ globals.scheme }}/{{ globals.server_name }}">HTML5</a></li>
-		<li>&nbsp;&#47;&nbsp;<a href="https://github.com/gallir/Meneame">{% trans _('codigo fuente') %}</a></li>
+		<li>&nbsp;&#47;&nbsp;<a href="https://github.com/gallir/groar">{% trans _('codigo fuente') %}</a></li>
 	{% endif %}
 {% else %}
-	<li>link to code and licenses here (please respect the menéame Affero license and publish your own code!)</li>
+	<li>link to code and licenses here (please respect the groar Affero license and publish your own code!)</li>
 	<li><a href="">contact here</a></li>
 	<li>code: <a href="#">Affero license here</a>, <a href="#">download code here</a></li>
 	<li>you and contact link here</li>

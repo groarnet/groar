@@ -21,7 +21,7 @@ function print_time($secs) {
 	else return $secs . ' ' . _("segundos");
 }
 
-do_header(_('Información sobre valores de karma y límites') . ' | ' . _('menéame'));
+do_header(_('Información sobre valores de karma y límites') . ' | ' . _('groar'));
 echo '<div id="singlewrap">'."\n";
 
 

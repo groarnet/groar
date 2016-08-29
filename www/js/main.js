@@ -12,7 +12,7 @@ var base_url="{{ globals.base_url_general }}",
 	{% endif %}
 
 if (typeof window.history == "object"
-		&& (do_partial || navigator.userAgent.match(/meneame/i)) ) {
+		&& (do_partial || navigator.userAgent.match(/groar/i)) ) {
 	do_partial = true;
 }
 

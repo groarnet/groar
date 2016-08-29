@@ -81,19 +81,19 @@ class Trackback {
 			$url = preg_replace('/^ping:/', '', $this->url);
 			$client = new IXR_Client($url);
 			$client->timeout = 3;
-			$client->useragent .= ' -- Meneame/2';
+			$client->useragent .= ' -- groar/2';
 			$client->debug = false;
 			if ($client->query('pingback.ping', $link->get_canonical_permalink(), $this->link )) {
 				$this->status='ok';
 				$this->store();
-				syslog(LOG_NOTICE, "Meneame, pingback sent: $this->link, $this->url");
+				syslog(LOG_NOTICE, "groar, pingback sent: $this->link, $this->url");
 				return true;
 			} else {
 				// Be quiet for pingbacks
 				$this->status='error';
 				$this->title = $client->getErrorMessage();
 				$this->store();
-				// syslog(LOG_NOTICE, "Meneame, out pingback error: $url ".$link->get_canonical_permalink().': '.$client->getErrorCode().' '.$client->getErrorMessage());
+				// syslog(LOG_NOTICE, "groar, out pingback error: $url ".$link->get_canonical_permalink().': '.$client->getErrorCode().' '.$client->getErrorMessage());
 				return false;
 			}
 		}
@@ -112,7 +112,7 @@ class Trackback {
 		$http_request .= 'Host: '.$trackback_url['host']."\r\n";
 		$http_request .= 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'."\r\n";
 		$http_request .= 'Content-Length: '.strlen($query_string)."\r\n";
-		$http_request .= "User-Agent: MNM (http://meneame.net) ";
+		$http_request .= "User-Agent: MNM (http://groar.net) ";
 		$http_request .= "\r\n\r\n";
 		$http_request .= $query_string;
 		if (empty($trackback_url['port'])) $trackback_url['port'] = 80;
@@ -131,7 +131,7 @@ class Trackback {
 			@fclose($fs);
 			$this->status='ok';
 			$this->store();
-			syslog(LOG_NOTICE, "Meneame, trackback sent: $this->link, $this->url");
+			syslog(LOG_NOTICE, "groar, trackback sent: $this->link, $this->url");
 			return true;	
 		}
 		$this->status='error';	
@@ -150,7 +150,7 @@ class Trackback {
 		if ($host && $this->link_id && $this->type == 'in') {
 			$tbs = (int) $db->get_var("select count(*) from trackbacks where trackback_type='in' and trackback_link_id = $this->link_id and trackback_url like '%://$host/%'");
 			if ($tbs > 0) {
-				syslog(LOG_NOTICE, "Meneame: too many trackbacks/pingbacks from $host ($this->url)");
+				syslog(LOG_NOTICE, "groar: too many trackbacks/pingbacks from $host ($this->url)");
 				$this->status = 'error';
 				$this->store();
 				return true;
@@ -160,7 +160,7 @@ class Trackback {
 		if ($globals['user_ip'] !=	$_SERVER["SERVER_ADDR"]) {
 			$tbs = (int) $db->get_var("select count(*) from trackbacks where trackback_date > date_sub(now(), interval 120 minute) and trackback_type='in' and trackback_ip_int = $globals[user_ip_int]");
 			if ($tbs > 2) {
-				syslog(LOG_NOTICE, "Meneame: trackback/pingback abuse from $globals[user_ip], $this->link, $this->url");
+				syslog(LOG_NOTICE, "groar: trackback/pingback abuse from $globals[user_ip], $this->link, $this->url");
 				if (!empty($this->link) && $this->type == 'in') {
 					$this->status = 'error';
 					$this->store();

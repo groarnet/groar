@@ -381,7 +381,7 @@ function get_static_server_name() {
 function get_auth_link() {
 	global $globals;
 	if ($globals['ssl_server']) {
-		// If this is the mobile version and it's an external server, e.g www.meneame.net,
+		// If this is the mobile version and it's an external server, e.g www.groar.net,
 		// we'd call /mobile/login.php instead of /login.php
 		if ($globals['mobile_version'] && $globals['ssl_server'] != get_server_name() ) {
 			$path = 'mobile/';
@@ -843,7 +843,7 @@ function memcache_minit () {
 		$memcache = new Memcache;
 		if (!isset($globals['memcache_port'])) $globals['memcache_port'] = 11211;
 		if ( ! @$memcache->connect($globals['memcache_host'], $globals['memcache_port']) ) {
-			syslog(LOG_INFO, "Meneame: memcache init failed " . $globals['memcache_host']);
+			syslog(LOG_INFO, "groar: memcache init failed " . $globals['memcache_host']);
 			$memcache = false;
 			return false;
 		}
@@ -929,7 +929,7 @@ function get_url($url, $referer = false, $max=500000, $log =true) {
 	//curl_setopt($session,CURLOPT_RANGE,"0-$max"); // It gives error with some servers
 	$response = @curl_exec($session);
 	if (!$response && $log) {
-			syslog(LOG_INFO, "Meneame: CURL error " . curl_getinfo($session,CURLINFO_EFFECTIVE_URL) . ": " .curl_error($session));
+			syslog(LOG_INFO, "groar: CURL error " . curl_getinfo($session,CURLINFO_EFFECTIVE_URL) . ": " .curl_error($session));
 			return false;
 	}
 	$header_size = curl_getinfo($session,CURLINFO_HEADER_SIZE);

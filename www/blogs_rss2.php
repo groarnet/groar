@@ -29,7 +29,7 @@ if ($if_modified > 0) {
 $last_modified = $db->get_var("SELECT UNIX_TIMESTAMP(comment_date) FROM comments ORDER BY comment_date DESC LIMIT 1");
 $entries = $db->get_results("select rss.blog_id, rss.user_id, unix_timestamp(rss.date_parsed) as date, title, url, user_login, user_avatar, blogs.blog_url, blogs.blog_title from rss, users, blogs where $from_time rss.blog_id = blogs.blog_id and rss.user_id = users.user_id order by rss.date_parsed desc limit $rows");
 
-$title = _('Menéame').': '._('blogs');
+$title = _('groar').': '._('blogs');
 
 if ( !$entries && $if_modified) {
 	header('HTTP/1.1 304 Not Modified');
@@ -41,8 +41,8 @@ do_header($title);
 if ($entries) {
 	foreach($entries as $entry) {
 		echo "	<item>\n";
-		echo "		<meneame:user>$entry->user_login</meneame:user>\n";
-		echo "		<meneame:url>".'http://'.get_server_name().$globals['base_url'].'rsss.php'."</meneame:url>\n";
+		echo "		<groar:user>$entry->user_login</groar:user>\n";
+		echo "		<groar:url>".'http://'.get_server_name().$globals['base_url'].'rsss.php'."</groar:url>\n";
 
 		// Title must not carry htmlentities
 		echo "		<title>".htmlentities2unicodeentities(strip_tags($entry->title))."</title>\n";
@@ -82,16 +82,16 @@ function do_header($title) {
 	echo '     xmlns:content="http://purl.org/rss/1.0/modules/content/"'."\n";
 	echo '     xmlns:wfw="http://wellformedweb.org/CommentAPI/"'."\n";
 	echo '     xmlns:dc="http://purl.org/dc/elements/1.1/"'."\n";
-	echo '     xmlns:meneame="http://meneame.net/faq-es.php"'."\n";
+	echo '     xmlns:groar="http://groar.net/faq-es.php"'."\n";
 	echo ' >'. "\n";
 	echo '<channel>'."\n";
 	echo '	<atom:link href="http://'.get_server_name().$globals['base_url'].'blogs_rss2.php" rel="self" type="application/rss+xml" />'."\n";
 	echo'	<title>'.$title.'</title>'."\n";
 	echo'	<link>http://'.get_server_name().$globals['base_url'].'rsss.php</link>'."\n";
 	echo"	<image><title>".$title."</title><link>http://".get_server_name().$globals['base_url']."rsss.php</link><url>http://".get_static_server_name().$globals['base_url']."img/mnm/eli-rss.png</url></image>\n";
-	echo'	<description>'._('blogs de usuarios de Menéame').'</description>'."\n";
+	echo'	<description>'._('blogs de usuarios de groar').'</description>'."\n";
 	echo'	<pubDate>'.date("r", $last_modified).'</pubDate>'."\n";
-	echo'	<generator>http://blog.meneame.net/</generator>'."\n";
+	echo'	<generator>http://blog.groar.net/</generator>'."\n";
 	echo'	<language>'.$dblang.'</language>'."\n";
 }
 

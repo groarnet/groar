@@ -60,34 +60,34 @@ function do_login() {
 
 	$previous_login_failed =  Log::get_date('login_failed', $globals['user_ip_int'], 0, 300);
 
-	// Show menéame intro only if first try and the there were not previous logins
+	// Show groar intro only if first try and the there were not previous logins
 	if (! $globals['mobile'] && $previous_login_failed < 3 && empty($_POST["processlogin"]) && empty($_COOKIE['u'])) {
 		echo '<div class="faq wideonly" style="float:right; width:55%; margin-top: 10px;">'."\n";
 		// Only prints if the user was redirected from submit.php
 		if (!empty($_REQUEST['return']) && preg_match('/submit\.php/', $_REQUEST['return'])) {
 			echo '<p style="border:1px solid #FF9400; font-size:1.3em; background:#FEFBEA; font-weight:bold; padding:0.5em 1em;">Para enviar una historia debes ser un usuario registrado</p>'."\n";
 		}
-		echo '<h3>'._('¿Qué es menéame?').'</h3>'."\n";
+		echo '<h3>'._('¿Qué es groar?').'</h3>'."\n";
 		echo '<p>'._('Es un sitio que te permite enviar una historia que será revisada por todos y será promovida, o no, a la página principal. Cuando un usuario envía una historia ésta queda en la <a href="queue">cola de pendientes</a> hasta que reúne los votos suficientes para ser promovida a la página principal').'.</p>'."\n";
 
-		echo '<h3>'._('¿Todavía no eres usuario de menéame?').'</h3>'."\n";
+		echo '<h3>'._('¿Todavía no eres usuario de groar?').'</h3>'."\n";
 		echo '<p>'._('Como usuario registrado podrás, entre otras cosas').':</p>'."\n";
 		echo '<ul style="margin-left: 1.5em">'."\n";
 		echo '<li>'."\n";
 		echo '<strong>'._('Enviar historias').'</strong><br />'."\n";
-		echo '<p>'._('Una vez registrado puedes enviar las historias que consideres interesantes para la comunidad. Si tienes algún tipo de duda sobre que tipo de historias puedes enviar revisa nuestras <a href="faq-es.php">preguntas frecuentes sobre menéame</a>').'.</p>'."\n";
+		echo '<p>'._('Una vez registrado puedes enviar las historias que consideres interesantes para la comunidad. Si tienes algún tipo de duda sobre que tipo de historias puedes enviar revisa nuestras <a href="faq-es.php">preguntas frecuentes sobre groar</a>').'.</p>'."\n";
 		echo '</li>'."\n";
 		echo '<li>'."\n";
 		echo '<strong>'._('Escribir comentarios').'</strong><br />'."\n";
-		echo '<p>'._('Puedes escribir tu opinión sobre las historias enviadas a menéame mediante comentarios de texto. También puedes votar positivamente aquellos comentarios ingeniosos, divertidos o interesantes y negativamente aquellos que consideres inoportunos').'.</p>'."\n";
+		echo '<p>'._('Puedes escribir tu opinión sobre las historias enviadas a groar mediante comentarios de texto. También puedes votar positivamente aquellos comentarios ingeniosos, divertidos o interesantes y negativamente aquellos que consideres inoportunos').'.</p>'."\n";
 		echo '</li>'."\n";
 		echo '<li>'."\n";
 		echo '<strong>'._('Perfil de usuario').'</strong><br />'."\n";
-		echo '<p>'._('Toda tu información como usuario está disponible desde la página de tu perfil. También puedes subir una imagen que representará a tu usuario en menéame. Incluso es posible compartir los ingresos publicitarios de Menéame, solo tienes que introducir el código de tu cuenta Google Adsense desde tu perfil').'.</p>'."\n";
+		echo '<p>'._('Toda tu información como usuario está disponible desde la página de tu perfil. También puedes subir una imagen que representará a tu usuario en groar. Incluso es posible compartir los ingresos publicitarios de groar, solo tienes que introducir el código de tu cuenta Google Adsense desde tu perfil').'.</p>'."\n";
 		echo '</li>'."\n";
 		echo '<li>'."\n";
 		echo '<strong>'._('Chatear en tiempo real desde la fisgona').'</strong><br />'."\n";
-		echo '<p>'._('Gracias a la <a href="sneak.php">fisgona</a> puedes ver en tiempo real toda la actividad de menéame. Además como usuario registrado podrás chatear con mucha más gente de la comunidad menéame').'</p>'."\n";
+		echo '<p>'._('Gracias a la <a href="sneak.php">fisgona</a> puedes ver en tiempo real toda la actividad de groar. Además como usuario registrado podrás chatear con mucha más gente de la comunidad groar').'</p>'."\n";
 		echo '</li>'."\n";
 		echo '</ul>'."\n";
 		echo '<h3><a href="register.php" style="color:#FF6400; text-decoration:underline; display:block; width:8em; text-align:center; margin:0 auto; padding:0.5em 1em; border:3px double #FFE2C5; background:#FFF3E8;">Regístrate ahora</a></h3>'."\n";

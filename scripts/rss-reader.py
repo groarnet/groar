@@ -22,7 +22,7 @@ else:
 
 
 """
-ALTER TABLE  `meneame`.`users` ADD INDEX (  `user_url` );
+ALTER TABLE  `groar`.`users` ADD INDEX (  `user_url` );
 
 ALTER TABLE  `blogs` ADD  `blog_feed` CHAR( 128 )
 	NULL DEFAULT NULL AFTER  `blog_url` ,
@@ -31,7 +31,7 @@ ADD  `blog_feed_read` TIMESTAMP NULL AFTER  `blog_feed_checked`;
 
 ALTER TABLE  `blogs` ADD  `blog_title` CHAR( 128 ) NULL DEFAULT NULL;
 
-CREATE TABLE  `meneame`.`rss` (
+CREATE TABLE  `groar`.`rss` (
 `blog_id` INT UNSIGNED NOT NULL ,
 `user_id` INT UNSIGNED NOT NULL DEFAULT  '0',
 `link_id` INT UNSIGNED NULL ,
@@ -41,10 +41,10 @@ CREATE TABLE  `meneame`.`rss` (
 `title` CHAR( 250 ) NOT NULL
 ) ENGINE = INNODB;
 
-ALTER TABLE  `meneame`.`rss` ADD INDEX (  `date` );
-ALTER TABLE  `meneame`.`rss` ADD INDEX (  `blog_id` ,  `date` );
-ALTER TABLE  `meneame`.`rss` ADD INDEX (  `user_id` ,  `date` );
-ALTER TABLE  `meneame`.`rss` ADD UNIQUE ( `url` );
+ALTER TABLE  `groar`.`rss` ADD INDEX (  `date` );
+ALTER TABLE  `groar`.`rss` ADD INDEX (  `blog_id` ,  `date` );
+ALTER TABLE  `groar`.`rss` ADD INDEX (  `user_id` ,  `date` );
+ALTER TABLE  `groar`.`rss` ADD UNIQUE ( `url` );
 """
 
 def main():

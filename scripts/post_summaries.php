@@ -13,14 +13,14 @@ include(mnminclude.'external_post.php');
 $my_id = SitesMgr::get_id($site_name);
 
 if (! $my_id > 0) {
-    syslog(LOG_INFO, "Meneame, ".basename(__FILE__)." site not found $site_name");
+    syslog(LOG_INFO, "groar, ".basename(__FILE__)." site not found $site_name");
     echo "No site id found\n";
     die;
 }
 
 SitesMgr::__init($my_id);
 
-syslog(LOG_INFO, "Meneame, running ".basename(__FILE__)." for $site_name");
+syslog(LOG_INFO, "groar, running ".basename(__FILE__)." for $site_name");
 
 $info = SitesMgr::get_info();
 $properties = SitesMgr::get_extended_properties();

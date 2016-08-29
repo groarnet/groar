@@ -1,4 +1,4 @@
-<?PHP
+<?php
 // The source code packaged with this file is Free Software, Copyright (C) 2005 by
 // Ricardo Galli <gallir at uib dot es>.
 // It's licensed under the AFFERO GENERAL PUBLIC LICENSE unless stated otherwise.
@@ -290,7 +290,7 @@ class UserAuth {
 
 		$c = (int) $db->get_var("select count(*) from votes, clones where vote_type='$type' and vote_link_id = $id and clon_from = $from and clon_to = vote_user_id and clon_date > date_sub(now(), interval $days day) and clon_ip like 'COOK:%'");
 		if ($c > 0) {
-			syslog(LOG_INFO, "Meneame: clon vote $type, id: $id, user: $from ");
+			syslog(LOG_INFO, "groar: clon vote $type, id: $id, user: $from ");
 		}
 		return $c;
 	}

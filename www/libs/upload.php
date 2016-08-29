@@ -210,7 +210,7 @@ class Upload {
 		$thumb->load($pathname);
 		if ( ! $thumb->load($pathname)) {
 			$alternate_image = mnmpath . "/img/common/picture02.png";
-			syslog(LOG_INFO, "Meneame, trying alternate thumb ($alternate_image) for $pathname");
+			syslog(LOG_INFO, "groar, trying alternate thumb ($alternate_image) for $pathname");
 			if (!$thumb->load($alternate_image)) return false;
 		}
 
@@ -245,7 +245,7 @@ class Upload {
 			$this->create_thumbs();
 			return $this->store();
 		} else {
-			syslog(LOG_INFO, "Meneame, error moving to " . $this->pathname());
+			syslog(LOG_INFO, "groar, error moving to " . $this->pathname());
 		}
 		return false;
 	}
@@ -277,7 +277,7 @@ class Upload {
 			$this->create_thumbs();
 			return $this->store();
 		} else {
-			syslog(LOG_INFO, "Meneame, error moving to " . $this->pathname());
+			syslog(LOG_INFO, "groar, error moving to " . $this->pathname());
 		}
 		return false;
 	}

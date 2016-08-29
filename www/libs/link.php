@@ -300,12 +300,12 @@ class Link extends LCPBase {
 		if(preg_match("/^$quoted_domain$/", $url_components['host'])) {
 			$this->ban = array();
 			$this->ban['comment'] = _('el servidor es local');
-			syslog(LOG_NOTICE, "Meneame, server name is local name ($current_user->user_login): $url");
+			syslog(LOG_NOTICE, "groar, server name is local name ($current_user->user_login): $url");
 			return false;
 		}
 		require_once(mnminclude.'ban.php');
 		if(($this->ban = check_ban($url, 'hostname', false, $first_level))) {
-			syslog(LOG_NOTICE, "Meneame, server name is banned ($current_user->user_login): $url");
+			syslog(LOG_NOTICE, "groar, server name is banned ($current_user->user_login): $url");
 			$this->banned = true;
 			return false;
 		}
@@ -333,7 +333,7 @@ class Link extends LCPBase {
 				$new_url = clean_input_url($response['location']);
 			}
 			if (!empty($new_url) && $new_url != $url) {
-				syslog(LOG_NOTICE, "Meneame, redirected ($current_user->user_login): $url -> $new_url");
+				syslog(LOG_NOTICE, "groar, redirected ($current_user->user_login): $url -> $new_url");
 				/* Check again the url */
 				if (!$this->check_url($new_url, $check_ban, true)) {
 					$this->url = $new_url;
@@ -342,7 +342,7 @@ class Link extends LCPBase {
 				// Change the url if we were directed to another host
 				if (strlen($new_url) < 300	&& ($new_url_components = @parse_url($new_url))) {
 					if ($url_components['host'] != $new_url_components['host']) {
-						syslog(LOG_NOTICE, "Meneame, changed source URL ($current_user->user_login): $url -> $new_url");
+						syslog(LOG_NOTICE, "groar, changed source URL ($current_user->user_login): $url -> $new_url");
 						$url = $new_url;
 						$url_components = $new_url_components;
 					}
@@ -351,7 +351,7 @@ class Link extends LCPBase {
 			$this->html = $response['content'];
 			$url_ok = true;
 		} else {
-			syslog(LOG_NOTICE, "Meneame, error getting ($current_user->user_login): $url");
+			syslog(LOG_NOTICE, "groar, error getting ($current_user->user_login): $url");
 			$url_ok = false;
 		}
 
@@ -385,7 +385,7 @@ class Link extends LCPBase {
 		if (preg_match('/<!-- *noshare *-->/', $this->html)) {
 			$this->ban = array();
 			$this->ban['comment'] = _('el autor no desea que se envíe el artículo, respeta sus deseos');
-			syslog(LOG_NOTICE, "Meneame, noshare ($current_user->user_login): $url");
+			syslog(LOG_NOTICE, "groar, noshare ($current_user->user_login): $url");
 			return false;
 		}
 
@@ -521,7 +521,7 @@ class Link extends LCPBase {
 
 			if ($blog->type != 'noiframe' && $this->noiframe) {
 				$blog->type = 'noiframe';
-				syslog(LOG_INFO, "Meneame, changed to noiframe ($blog->id, $blog->url)");
+				syslog(LOG_INFO, "groar, changed to noiframe ($blog->id, $blog->url)");
 			}
 			$blog->store();
 		}
@@ -1391,9 +1391,9 @@ class Link extends LCPBase {
 			$this->image_parser->debug = $debug;
 			$this->image_parser->referer = $this->get_permalink();
 		}
-		if ($debug) echo "<!-- Meneame, before image_parser -->\n";
+		if ($debug) echo "<!-- groar, before image_parser -->\n";
 		$img = $this->image_parser->get();
-		if ($debug) echo "<!-- Meneame, after image_parser: $img->url -->\n";
+		if ($debug) echo "<!-- groar, after image_parser: $img->url -->\n";
 		$this->thumb_status = 'checked';
 		$this->thumb = '';
 		if ($img) {
@@ -1403,12 +1403,12 @@ class Link extends LCPBase {
 			if (! $this->move_tmp_image(basename($filepath), 'image/jpeg') ) {
 				$this->thumb_status = 'error';
 				if ($debug)
-					echo "<!-- Meneame, error saving thumbnail ".$this->get_permalink()." -->\n";
+					echo "<!-- groar, error saving thumbnail ".$this->get_permalink()." -->\n";
 			} else {
 				$this->image_parser->seen_add($img->url);
 				$this->thumb_status = 'remote';
 				if ($debug) {
-					echo "<!-- Meneame, new thumbnail $img->url -->\n";
+					echo "<!-- groar, new thumbnail $img->url -->\n";
 				}
 			}
 		}

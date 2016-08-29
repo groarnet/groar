@@ -20,7 +20,7 @@ include(mnminclude.'external_post.php');
 $my_id = SitesMgr::get_id($site_name);
 
 if (! $my_id > 0) {
-	syslog(LOG_INFO, "Meneame, post_link.php, site not found $site_name");
+	syslog(LOG_INFO, "groar, post_link.php, site not found $site_name");
 	echo "No site id found\n";
 	die;
 }
@@ -29,7 +29,7 @@ SitesMgr::__init($my_id);
 
 $link = Link::from_db($link_id);
 if (! $link) {
-	syslog(LOG_INFO, "Meneame, post_link.php, link not found $link_id");
+	syslog(LOG_INFO, "groar, post_link.php, link not found $link_id");
 	echo "Link $link_id not found\n";
 	die;
 }
@@ -48,7 +48,7 @@ function do_posts($link) {
 	$info = SitesMgr::get_info();
 	$properties = SitesMgr::get_extended_properties();
 
-	syslog(LOG_INFO, "Meneame, posting $link->uri");
+	syslog(LOG_INFO, "groar, posting $link->uri");
 
 	$url = $link->get_permalink($info->sub);
 	echo "Posting $url: ".$globals['server_name']."\n"; 

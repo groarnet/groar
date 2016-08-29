@@ -184,7 +184,7 @@ class SitesMgr {
 						break;
 					default:
 						$do_current = true;
-						syslog(LOG_INFO, "Menéame, status unknown in link $link->id");
+						syslog(LOG_INFO, "groar, status unknown in link $link->id");
 				}
 				$me->status = $link->status;
 			}

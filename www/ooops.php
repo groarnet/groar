@@ -52,7 +52,7 @@ if (preg_match("/$cache_dir/", $_SERVER['REQUEST_URI'])) {
 			$thumbname = "$path/$filename";
 
 			if (! file_exists($pathname)) {
-				syslog(LOG_INFO, "Meneame, ooops, couldn't find $pathname");
+				syslog(LOG_INFO, "groar, ooops, couldn't find $pathname");
 				$errn = 404;
 				break;
 			}

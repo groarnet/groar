@@ -7,8 +7,8 @@ use Encode;
 use LWP::UserAgent;
 use strict;
 
-#my $url = 'http://antoli/meneame/backend/post_sms_store.php';
-my $url = 'http://meneame.net/backend/post_sms_store.php';
+#my $url = 'http://antoli/groar/backend/post_sms_store.php';
+my $url = 'http://groar.net/backend/post_sms_store.php';
 
 my $number = shift;
 my $date = shift;
@@ -30,7 +30,7 @@ $date = encodeUrl($date);
 $text = encodeUrl($text);
 
 my $ua = LWP::UserAgent->new;
-$ua->agent("Meneame SMS");
+$ua->agent("groar SMS");
 my $req = HTTP::Request->new(POST => $url);
 $req->content_type('application/x-www-form-urlencoded');
 $req->content("phone=$number&date=$date&text=$text");

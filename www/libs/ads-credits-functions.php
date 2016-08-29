@@ -30,8 +30,8 @@ function do_banner_top () { // top banner
 		//@include('ads/top.inc');
 	} else {
 		echo '<div class="banner-top">' . "\n";
-		Haanga::Safe_Load('private/ad-meneame.html');
-		//@include('ads/meneame-01.inc');
+		Haanga::Safe_Load('private/ad-groar.html');
+		//@include('ads/groar-01.inc');
 		echo '</div>' . "\n";
 	}
 *****/
@@ -85,7 +85,7 @@ function do_banner_story() {
 function do_legal($legal_name, $target = '', $show_abuse = true) {
 	global $globals;
 	// IMPORTANT: legal note only for our servers, CHANGE IT!!
-	if ($globals['is_meneame']) {
+	if ($globals['is_groar']) {
 		echo '<a href="'.$globals['legal'].'" '.$target.'>'.$legal_name.'</a>';
 	} else {
 		echo 'legal conditions link here';
@@ -97,7 +97,7 @@ function do_credits_mobile() {
 	global $dblang, $globals;
 
 	echo '<div id="footthingy">';
-	echo '<a href="http://meneame.net" title="meneame.net"><img src="'.$globals['base_static'].'img/mnm/meneito.png" alt="Menéame"/></a>';
+	echo '<a href="http://groar.net" title="groar.net"><img src="'.$globals['base_static'].'img/mnm/meneito.png" alt="groar"/></a>';
 	/*
 	echo '<ul id="stdcompliance">';
 	echo '<li><a href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:80px;height:15px" src="'.$globals['base_url'].'img/common/valid-xhtml10.gif" alt="Valid XHTML 1.0 Transitional" /></a></li>';

@@ -14,7 +14,7 @@ $globals['extra_css'][] = 'admin.css';
 
 $globals['ads'] = false;
 
-do_header(_('Administración de bans'));
+do_header(_('Administración de bloqueos'));
 
 $page_size = 40;
 $offset=(get_current_page()-1)*$page_size;
@@ -23,7 +23,7 @@ $ban_comment_length=120;
 
 if ($current_user->admin) {
 	if (!$_REQUEST["admin"]) {
-		$_REQUEST["admin"] = 'hostname';
+		$_REQUEST["admin"] = 'HOSTNAME';
 	} else {
 		$_REQUEST["admin"] = clean_input_string($_REQUEST["admin"]);;
 	}
@@ -34,7 +34,7 @@ if ($current_user->admin) {
 	admin_bans($_REQUEST["admin"]);
 } else {
 	echo '<div id="singlewrap">' . "\n";
-	echo '<div class="topheading"><h2>'._('Esta página es sólo para administradores').'</h2>';
+	echo '<div class="topheading"><h2>'._('Solo administradores permitidos').'</h2>';
 }
 echo "</div>";
 echo "</div>"; // singlewrap
@@ -99,17 +99,17 @@ function admin_bans($ban_type) {
 		$_REQUEST["s"] = clean_text($_REQUEST["s"]);
 		echo ' value="'.$_REQUEST["s"].'" ';
 	} else {
-		echo ' value="'._('buscar').'..." ';
+		echo ' value="'._('BUSCAR').'..." ';
 	}
-	echo 'onblur="if(this.value==\'\') this.value=\''._('buscar').'...\';" onfocus="if(this.value==\''._('buscar').'...\') this.value=\'\';" />';
+	echo 'onblur="if(this.value==\'\') this.value=\''._('BUSCAR').'...\';" onfocus="if(this.value==\''._('BUSCAR').'...\') this.value=\'\';" />';
 
-	echo '&nbsp;<input style="padding:2px;" type="image" align="top" value="'._('buscar').'" alt="'._('buscar').'" src="'.$globals['base_static'].'img/common/search-03.png" />';
+	echo '&nbsp;<input style="padding:2px;" type="image" align="top" value="'._('BUSCAR').'" alt="'._('BUSCAR').'" src="'.$globals['base_static'].'img/common/search-03.png" />';
 	echo '</form>';
 	echo '</div>';
 
 	if ($current_user->user_level=="god") {
-		echo '&nbsp; [ <a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;op=new">'._('Nuevo ban').'</a> ]';
-		echo '&nbsp; [ <a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;op=news">'._('Múltiples bans').'</a> ]';
+		echo '&nbsp; [ <a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;op=new">'._('BLOQUEO').'</a> ]';
+		echo '&nbsp; [ <a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;op=news">'._('MULTIBLOQUEO').'</a> ]';
 	}
 
 	if (!empty($_REQUEST["op"])) {
@@ -123,20 +123,20 @@ function admin_bans($ban_type) {
 	echo 'orderby=ban_text">'.$ban_type.'</a></th>';
 	echo '<th width="30%"><a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;';
 	if ($_REQUEST["s"]) { echo 's='.$_REQUEST["s"].'&amp;'; }
-	echo 'orderby=ban_comment">'._('comentario').'</a></th>';
+	echo 'orderby=ban_comment">'._('NOTA').'</a></th>';
 	echo '<th><a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;';
 	if ($_REQUEST["s"]) { echo 's='.$_REQUEST["s"].'&amp;'; }
-	echo 'orderby=ban_date">'._('fecha creación').'</a></th>';
+	echo 'orderby=ban_date">'._('INICIO').'</a></th>';
 	echo '<th><a href="'.$globals['base_url'].'admin/bans.php?admin='.$ban_type.'&amp;';
 	if ($_REQUEST["s"]) { echo 's='.$_REQUEST["s"].'&amp;'; }
-	echo 'orderby=ban_expire">'._('fecha caducidad').'</a></th>';
-	echo '<th>'._('Editar / Borrar').'</th></tr>';
+	echo 'orderby=ban_expire">'._('FIN').'</a></th>';
+	echo '<th>'._('EDITAR/BORRAR').'</th></tr>';
 
 	switch ($_REQUEST["op"]) {
 		case 'new':
 			echo '<tr><td>';
 			echo '<input type="text" id="ban_text" name="ban_text" size="30" maxlength="'.$ban_text_length.'" value="" />';
-			echo '&nbsp;<span id="checkit"><input type="button" id="checkbutton1" value="'._('verificar').'" onclick="checkfield(\'ban_'.$ban_type.'\', this.form, this.form.ban_text)"/></span>' . "\n";
+			echo '&nbsp;<span id="checkit"><input type="button" id="checkbutton1" value="'._('VERIFICAR').'" onclick="checkfield(\'ban_'.$ban_type.'\', this.form, this.form.ban_text)"/></span>' . "\n";
 			echo '<br /><span id="ban_'.$ban_type.'checkitvalue"></span>' . "\n";
 			echo '</td><td>';
 			echo '<input class="form-full" type="text" name="ban_comment" id="ban_comment" />';
@@ -147,7 +147,7 @@ function admin_bans($ban_type) {
 			echo '</select>';
 			echo '</td><td>';
 			echo '<input type="hidden" name="new_ban" value="1" />';
-			echo '<input type="submit" name="submit" value="'._('Crear ban').'" />';
+			echo '<input type="submit" name="submit" value="'._('BLOQUEO').'" />';
 			echo '</td></tr>';
 			break;
 		case 'news':
@@ -162,7 +162,7 @@ function admin_bans($ban_type) {
 			echo '</select>';
 			echo '</td><td>';
 			echo '<input type="hidden" name="new_bans" value="1" />';
-			echo '<input type="submit" name="submit" value="'._('Crear bans').'" />';
+			echo '<input type="submit" name="submit" value="'._('BLOQUEAR').'" />';
 			echo '</td></tr>';
 			break;
 		case 'edit':
@@ -182,7 +182,7 @@ function admin_bans($ban_type) {
 			echo '</select>';
 			echo '</td><td>';
 			echo '<input type="hidden" name="ban_id" value="'.$ban->ban_id.'" />';
-			echo '<input type="submit" name="edit_ban" value="'._('Editar ban').'" />';
+			echo '<input type="submit" name="edit_ban" value="'._('EDITAR').'" />';
 			echo '</td></tr>';
 			break;
 	}
@@ -236,7 +236,7 @@ function admin_bans($ban_type) {
 }
 
 function print_expiration_dates() {
-	echo '<option value="UNDEFINED">'._('Sin caducidad').'</option>';
+	echo '<option value="UNDEFINED">'._('PERPÉTUO').'</option>';
 	echo '<option value="'.time().'">'._('Ahora').'</option>';
 	echo '<option value="'.(time()+7200).'">'._('Ahora + dos horas').'</option>';
 	echo '<option value="'.(time()+86400).'">'._('Ahora + un día').'</option>';

@@ -82,7 +82,7 @@ $twemojis[_('transporte')] = array(
 
 echo '<div class="emoji-kbd">';
 echo '<ul class="emojiCat">';
-echo '<li><a href="#" data-target="cat-meneame" class="emoji-tab active">menéame</a></li>';
+echo '<li><a href="#" data-target="cat-groar" class="emoji-tab active">groar</a></li>';
 
 if (! $globals['mobile'] ) {
 	foreach ($twemojis as $cat => $v) {
@@ -91,7 +91,7 @@ if (! $globals['mobile'] ) {
 }
 echo '</ul>';
 
-echo '<div id="cat-meneame" class="emoji-panel active">';
+echo '<div id="cat-groar" class="emoji-panel active">';
 foreach ($menemojis as $k => $v) {
 	echo '<img class="emoji-btn" data-emoji="'.$k.'" src="'.$globals['base_static'].'img/menemojis/36/'.$v.'" alt=":'.$k.':" title=":'.$k.':">';
 }

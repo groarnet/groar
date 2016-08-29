@@ -4,7 +4,7 @@
 #use strict;
 use DBI;
 
-my $dbh = DBI->connect ('DBI:mysql:meneame', 'meneame', '');
+my $dbh = DBI->connect ('DBI:mysql:groar', 'groar', '');
 
 while (<>) {
 	($id, $time) = split;

@@ -110,7 +110,7 @@ if($_SERVER['HTTP_HOST']) {
 		}
 	}
 } else {
-	if (!$globals['server_name']) $globals['server_name'] = 'meneame.net'; // Warn: did you put the right server name?
+	if (!$globals['server_name']) $globals['server_name'] = 'groar.net'; // Warn: did you put the right server name?
 }
 
 $globals['base_url_general'] = $globals['base_url']; // Keep the original if it's modified in submnms

@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
 
 	parser.add_argument("--maxitems", "-x", type=int, default=20, help="Max number per each displayed item, default 20, 0 for all")
-	parser.add_argument("--logfile", "-l", default="/var/log/meneame_access.log", help="Logfile pathname, default /var/log/meneame_access.log")
+	parser.add_argument("--logfile", "-l", default="/var/log/groar_access.log", help="Logfile pathname, default /var/log/groar_access.log")
 	configuration = parser.parse_args()
 
 	try:

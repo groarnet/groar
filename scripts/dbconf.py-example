@@ -1,8 +1,8 @@
-domain = "gallir.meneame.net/meneame"
+domain = "gallir.groar.net/groar"
 
 dbserver = {
-	'db': "meneame",
-	'user': "meneame",
+	'db': "groar",
+	'user': "groar",
 	'pass': "",
 	'update': "127.0.0.1",  # master server
 	'select': "127.0.0.1",  # server to do the selects
@@ -23,6 +23,6 @@ blogs = {
     'viewer': '/rsss.php', 			# page to see last entries
 	'newpost': '/api/newpost.php',	# page to see last entries
 
-	'post_user': 'meneame.net', 	# The user to post
+	'post_user': 'groar.net', 	# The user to post
 	'post_key': '', 				# The API key
  }

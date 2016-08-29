@@ -19,13 +19,13 @@
 
 
 	<div id="footcol2">
-	{% if globals.is_meneame %}
+	{% if globals.is_groar %}
 		<h5>ayuda</h5>
 		<ul id="helplist">
 		<li><a href="{{ globals.base_url_general }}faq-es">{% trans _('faq') %}</a></li>
-		<li><a href="http://meneame.wikispaces.com/Ayuda">{% trans _('ayuda') %}</a></li>
-		<li><a href="http://meneame.wikispaces.com/">{% trans _('wiki') %}</a></li>
-		<li><a href="http://meneame.wikispaces.com/Bugs">{% trans _('avisar errores') %}</a></li>
+		<li><a href="http://groar.wikispaces.com/Ayuda">{% trans _('ayuda') %}</a></li>
+		<li><a href="http://groar.wikispaces.com/">{% trans _('wiki') %}</a></li>
+		<li><a href="http://groar.wikispaces.com/Bugs">{% trans _('avisar errores') %}</a></li>
 		<li><a href="{{globals.legal}}#contact">{% trans _('avisar abusos') %}</a></li>
 		</ul>
 	{% endif %}
@@ -33,14 +33,14 @@
 
 
 	<div id="footcol3">
-	{% if globals.is_meneame %}
-		<h5>+menéame</h5>
+	{% if globals.is_groar %}
+		<h5>+groar</h5>
 		<ul id="moremenelist">
 		<li><a href="{{ globals.base_url_general }}trends">{% trans _('tendencias') %}</a></li>
 		<li><a href="{{ globals.base_url_general }}mobile/">{% trans _('versión reducida') %}</a></li>
-		<li><a href="http://twitter.com/meneame_net">{% trans _('síguenos en twitter') %}</a></li>
+		<li><a href="http://twitter.com/groar_net">{% trans _('síguenos en twitter') %}</a></li>
 		<li><a href="/notame/">{% trans _('nótame') %}</a></li>
-		<li><a href="http://blog.meneame.net/">{% trans _('blog') %}</a></li>
+		<li><a href="http://blog.groar.net/">{% trans _('blog') %}</a></li>
 		</ul>
 	{% endif %}
 	</div>
@@ -73,10 +73,10 @@
 		<li><a href="{{ globals.base_url }}map.php">{% trans _('noticias') %}</a></li>
 	{% endif %}
 	</ul>
-	{% if globals.is_meneame %}
+	{% if globals.is_groar %}
 		<h5>tienda</h5>
 		<ul id="shoplift">
-		<li><a href="http://meneame.wikispaces.com/menechandising">{% trans _('camisetas') %}</a></li>
+		<li><a href="http://groar.wikispaces.com/menechandising">{% trans _('camisetas') %}</a></li>
 		<li><a href="http://www.socialmediasl.com/">{% trans _('publicidad') %}</a></li>
 		</ul>
 	{% endif %}

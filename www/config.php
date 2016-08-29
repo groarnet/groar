@@ -30,13 +30,13 @@ define('config_done', 1);
 
 // WARN WARNING ALERT: we use $_SERVER['SERVER_NAME'] which is the first
 // server_name in NGInx and other servers
-// $globals['server_name']	= $_SERVER['SERVER_NAME'];
+//$globals['server_name']	= $_SERVER['SERVER_NAME'];
 
 // In case you have different domains and want to avoid Google penalization for duplicated content
-// $globals['canonical_server_name'] = 'www.canonical.com';
+//$globals['canonical_server_name'] = 'www.groar.net';
 
 // If you want to use the same cookie for subdomains, set de .domain.com
-// $globals['cookies_domain'] = '.domain.com';
+//$globals['cookies_domain'] = '.groar.net';
 
 // If you want for force all html connection to pass throu ssl
 // $globals['force_ssl'] = True;
@@ -44,8 +44,8 @@ define('config_done', 1);
 // Specify the name of the ssl server, ensure you have also setup "cookies_domain
 $globals['ssl_server'] = False; 
 
-$globals['site_name'] = 'Menéame';
-$globals['site_shortname'] = 'mnm'; //Used to differentiate in keys
+//$globals['site_name'] = 'groar';
+//$globals['site_shortname'] = 'mnm'; //Used to differentiate in keys
 
 // If you user version, be careful to rewrite the directory for img, css and js
 // Example for nginx:
@@ -53,7 +53,7 @@ $globals['site_shortname'] = 'mnm'; //Used to differentiate in keys
 $globals['v'] = 40; // internal version, to for reloads
 $globals['lang'] = $dblang	= 'es';
 
-$globals['help_url'] = 'http://meneame.wikispaces.com/Comenzando';
+//$globals['help_url'] = 'http://groar.wikispaces.com/Comenzando';
 
 // Show only these meta categories, false for all
 $globals['allowed_metas'] = false;
@@ -70,17 +70,17 @@ $globals['behind_load_balancer'] = False; // LB as those in Amazon EC2 don't sen
 //$globals['notify_email'] = 'my_email_domain.com'; // used for sending notifications, now only used for Amazon SNS/SES notifications
 
 //Configuration values
-//$globals['external_ads'] = false;
-//$globals['external_user_ads'] = false;
+$globals['external_ads'] = true;
+$globals['external_user_ads'] = true;
 
-$globals['db_server'] = 'localhost';
-$globals['db_name'] = 'meneame';
-$globals['db_user'] = 'meneame';
-$globals['db_password'] = '';
-$globals['db_use_transactions'] = true; // Disable it if you use MyISAM and have high loads
+//$globals['db_server'] = 'localhost';
+//$globals['db_name'] = 'groar';
+//$globals['db_user'] = 'groar';
+//$globals['db_password'] = '';
+//$globals['db_use_transactions'] = true; // Disable it if you use MyISAM and have high loads
 
 // Administrator email
-//$globals['adm_email'] = 'admin@administrador'
+//$globals['adm_email'] = 'admin@groar.net';
 
 //Specify the static web server, wiith port included, use same document root as the main server (i.e. base_url is used
 // Don't forget to add a redirect to ooops.php in case of 404 error, for example in NGINX:
@@ -91,19 +91,19 @@ $globals['db_use_transactions'] = true; // Disable it if you use MyISAM and have
     }
 */
 $globals['static_server'] = '';
-//$globals['static_server'] = 'http://static.meneame.net';
+//$globals['static_server'] = 'http://static.groar.net';
 
 // Enables the click counter, it call to /go.php
 // Make sure you have defined the table:
-// CREATE TABLE  `meneame`.`link_clicks` ( `id` INT UNSIGNED NOT NULL , `counter` INT UNSIGNED NOT NULL DEFAULT  '0', PRIMARY KEY (  `id` )) ENGINE = INNODB;
+// CREATE TABLE  `groar`.`link_clicks` ( `id` INT UNSIGNED NOT NULL , `counter` INT UNSIGNED NOT NULL DEFAULT  '0', PRIMARY KEY (  `id` )) ENGINE = INNODB;
 $globals['click_counter'] = 1; // Put a value since which id should show in "link_summary", 0 to disable it
 
-//URL shortener (used in menea.me)
-//$globals['url_shortener'] = 'menea.me';
+//URL shortener (used in gro.ar)
+//$globals['url_shortener'] = 'gro.ar';
 
 
 // Specify you base url, "/" if is the root document
-// $globals['base_dir'] = '/meneame/';
+$globals['base_dir'] = '/';
 $globals['base_url'] = '/';
 $globals['top_logo'] = 'img/mnm/eli.png';
 $globals['thumbnail_logo'] = 'img/mnm/eli_thumbnail.png';
@@ -127,7 +127,7 @@ $globals['karma_clicks_bonus'] = 0.05; // Bonus to give due to clicks, it reache
 $globals['memcache_port'] = 11211; // optional
 
 
-// Enable it if you to log every access to the scripts (progname will be "meneame_accesslog")
+// Enable it if you to log every access to the scripts (progname will be "groar_accesslog")
 //$globals['access_log'] = false;
 
 // Uncomment if you don't want to control the banned IPs
@@ -208,7 +208,7 @@ $globals['time_enabled_comments_status']['abuse'] = 43200; // 1/2 day
 $globals['time_enabled_votes'] = 345600; // 4 days
 $globals['time_enabled_negative_votes'] = 3600; // 1 hour
 $globals['mysql_persistent'] = true;
-$globals['mysql_master_persistent'] = false;
+//$globals['mysql_master_persistent'] = false;
 // Enable or disable the detecttion of real IP behind transparents proxies
 $globals['check_behind_proxy'] = false;
 //$globals['lounge'] = 'lounge.html';
@@ -275,7 +275,7 @@ $globals['haanga_cache'] = '/var/tmp';
 $globals['haanga_templates'] = 'templates';
 
 //$globals['lucene_dir'] = mnmpath.'/'.$globals['cache_dir'].'/lucene_links';
-$globals['sphinx_server'] = 'localhost';
+//$globals['sphinx_server'] = 'localhost';
 $globals['sphinx_port'] = 9312;
 
 $globals['avatars_check_always'] = true;
@@ -311,7 +311,7 @@ $globals['captcha_first_login'] = false;
 //$globals['twitter_token'] = 'xxxxxx-xxxxxx';
 //$globals['twitter_token_secret'] = 'xxxxxx';
 // Show the link in the horizontal bar
-// $globals['twitter_page'] = 'http://twitter.com/meneame_net';
+// $globals['twitter_page'] = 'http://twitter.com/groar_net';
 
 
 // For Facebook authentication
@@ -320,7 +320,7 @@ $globals['captcha_first_login'] = false;
 // For Facebook page
 //$globals['facebook_token'] = '';
 // Show the link in the horizontal bar
-// $globals['facebook_page'] = 'http://facebook.com/meneameoficial';
+// $globals['facebook_page'] = 'http://facebook.com/groar.net';
 
 
 // Jaiku settings
@@ -332,7 +332,7 @@ $globals['captcha_first_login'] = false;
 
 
 // Websnapr.com previews
-$globals['do_websnapr'] = false;
+$globals['do_websnapr'] = true;
 
 // Kalooga related images
 // Example
@@ -394,10 +394,10 @@ $site_key = 12345679;
 $globals['anon_karma']	= 4;
 
 
-$globals['user_agent'] = 'Meneamebot (http://meneame.net/)';
+$globals['user_agent'] = 'groarbot (http://groar.net/)';
 
 // Send logs to "log_user", it's windows compatible
-openlog('meneame', LOG_ODELAY, LOG_USER);
+openlog('groar', LOG_ODELAY, LOG_USER);
 
 //////////////////////////////////////
 // Don't touch behind this

@@ -14,10 +14,10 @@ function check_stats($string) {
 	if (preg_match('/^!stats3/', $string)) return do_stats3($string);
 	if (preg_match('/^!stats1{0,1}/', $string)) return do_stats1($string);
 	if (preg_match('/^!time/', $string)) return date(" d-m-Y H:i:s T");
-	if (preg_match('/^!help/', $string)) return _('comandos') . ': http://meneame.wikispaces.com/Comandos';
+	if (preg_match('/^!help/', $string)) return _('comandos') . ': http://groar.wikispaces.com/Comandos';
 	if (preg_match('/^!cabal/', $string)) return do_cabal($string);
 	if (preg_match('/^!dariaunojo/', $string)) return do_ojo($string);
-	if (preg_match('/^!wiki/', $string)) return 'wiki: http://meneame.wikispaces.com/';
+	if (preg_match('/^!wiki/', $string)) return 'wiki: http://groar.wikispaces.com/';
 	if (preg_match('/^!promote/', $string)) return 'http://' . get_server_name().$globals['base_url']. 'promote.php';
 	if (preg_match('/^!hoygan/', $string)) return '¡HOYGAN! BISITEN http://' . get_server_name().$globals['base_url']. 'sneak.php?hoygan=1 GRASIAS DE HANTEMANO';
 	if (preg_match('/^!webstats/', $string)) return 'http://www.quantcast.com/'.get_server_name();

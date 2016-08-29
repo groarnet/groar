@@ -178,13 +178,13 @@ if ($comments) {
 			$content = htmlentities2unicodeentities($comment->to_html($comment->content));
 		}
 		echo "	<item>\n";
-		echo "		<meneame:comment_id>$comment->id</meneame:comment_id>\n";
-		echo "		<meneame:link_id>$comment->link</meneame:link_id>\n";
-		echo "		<meneame:order>$comment->order</meneame:order>\n";
-		echo "		<meneame:user>$comment->username</meneame:user>\n";
-		echo "		<meneame:votes>".intval($comment->votes)."</meneame:votes>\n";
-		echo "		<meneame:karma>".intval($comment->karma)."</meneame:karma>\n";
-		echo "		<meneame:url>".$comment->link_permalink."</meneame:url>\n";
+		echo "		<groar:comment_id>$comment->id</groar:comment_id>\n";
+		echo "		<groar:link_id>$comment->link</groar:link_id>\n";
+		echo "		<groar:order>$comment->order</groar:order>\n";
+		echo "		<groar:user>$comment->username</groar:user>\n";
+		echo "		<groar:votes>".intval($comment->votes)."</groar:votes>\n";
+		echo "		<groar:karma>".intval($comment->karma)."</groar:karma>\n";
+		echo "		<groar:url>".$comment->link_permalink."</groar:url>\n";
 
 		// Title must not carry htmlentities
 		echo "		<title>#$comment->order ".htmlentities2unicodeentities($link->title)."</title>\n";
@@ -223,7 +223,7 @@ function do_header($title) {
 	echo '     xmlns:content="http://purl.org/rss/1.0/modules/content/"'."\n";
 	echo '     xmlns:wfw="http://wellformedweb.org/CommentAPI/"'."\n";
 	echo '     xmlns:dc="http://purl.org/dc/elements/1.1/"'."\n";
-	echo '     xmlns:meneame="http://meneame.net/faq-es.php"'."\n";
+	echo '     xmlns:groar="http://groar.net/faq-es.php"'."\n";
 	echo ' >'. "\n";
 	echo '<channel>'."\n";
 	echo'	<title>'.$title.'</title>'."\n";
@@ -231,7 +231,7 @@ function do_header($title) {
 	echo"	<image><title>".get_server_name()."</title><link>http://".get_server_name()."</link><url>http://".get_static_server_name().$globals['base_url']."img/mnm/eli-rss.png</url></image>\n";
 	echo'	<description>'._('Sitio colaborativo de publicación y comunicación entre blogs').'</description>'."\n";
 	echo'	<pubDate>'.date("r", $last_modified).'</pubDate>'."\n";
-	echo'	<generator>http://blog.meneame.net/</generator>'."\n";
+	echo'	<generator>http://blog.groar.net/</generator>'."\n";
 	echo'	<language>'.$dblang.'</language>'."\n";
 }
 
@@ -244,6 +244,6 @@ function check_redirect_to_feedburner() {
 
 	if (!$globals['redirect_feedburner'] || preg_match('/feedburner/', htmlspecialchars($_SERVER['PHP_SELF'])) || preg_match('/feedburner/i', $_SERVER['HTTP_USER_AGENT'])) return;
 
-	header("Location: http://feeds.feedburner.com/meneame/comments");
+	header("Location: http://feeds.feedburner.com/groar/comments");
 	exit();
 }

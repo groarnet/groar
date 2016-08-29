@@ -7,7 +7,7 @@ use DBI;
 my $year = shift;
 my $month = shift;
 
-my $dbh = DBI->connect ('DBI:mysql:meneame', 'meneame', '');
+my $dbh = DBI->connect ('DBI:mysql:groar', 'groar', '');
 
 
 # sent per day

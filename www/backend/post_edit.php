@@ -111,7 +111,7 @@ function save_post ($post_id) {
 				$reduction = $same_links * 0.2;
 				$user = new User($current_user->user_id);
 				$user->add_karma(-$reduction, _('demasiados enlaces al mismo dominio en las notas'));
-				syslog(LOG_NOTICE, "Meneame: post_edit decreasing $reduction of karma to $user->username (now $user->karma)");
+				syslog(LOG_NOTICE, "groar: post_edit decreasing $reduction of karma to $user->username (now $user->karma)");
 			}
 			$post->store();
 			$db->commit();

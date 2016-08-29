@@ -16,7 +16,7 @@ my $hours = int(shift);
 if ($hours <= 0) { $hours = 1 }
 
 
-my $dbh = DBI->connect ('DBI:mysql:meneame', 'meneame', '');
+my $dbh = DBI->connect ('DBI:mysql:groar', 'groar', '');
 $dbh->do("set character set utf8");
 $dbh->do("set names utf8");
 

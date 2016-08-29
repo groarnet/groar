@@ -214,17 +214,17 @@ if ($links) {
 		$permalink = $link->get_permalink();
 		echo "	<item>\n";
 
-		// Meneame own namespace
-		echo "		<meneame:link_id>$link->id</meneame:link_id>\n";
-		echo "		<meneame:sub>$link->sub_name</meneame:sub>\n";
-		echo "		<meneame:status>$link->status</meneame:status>\n";
-		echo "		<meneame:user>$link->username</meneame:user>\n";
-		echo "		<meneame:clicks>".$link->clicks."</meneame:clicks>\n";
-		echo "		<meneame:votes>".intval($link->votes+$link->anonymous)."</meneame:votes>\n";
-		echo "		<meneame:negatives>$link->negatives</meneame:negatives>\n";
-		echo "		<meneame:karma>".intval($link->karma)."</meneame:karma>\n";
-		echo "		<meneame:comments>$link->comments</meneame:comments>\n";
-		echo "		<meneame:url>".htmlspecialchars($link->url)."</meneame:url>\n";
+		// groar own namespace
+		echo "		<groar:link_id>$link->id</groar:link_id>\n";
+		echo "		<groar:sub>$link->sub_name</groar:sub>\n";
+		echo "		<groar:status>$link->status</groar:status>\n";
+		echo "		<groar:user>$link->username</groar:user>\n";
+		echo "		<groar:clicks>".$link->clicks."</groar:clicks>\n";
+		echo "		<groar:votes>".intval($link->votes+$link->anonymous)."</groar:votes>\n";
+		echo "		<groar:negatives>$link->negatives</groar:negatives>\n";
+		echo "		<groar:karma>".intval($link->karma)."</groar:karma>\n";
+		echo "		<groar:comments>$link->comments</groar:comments>\n";
+		echo "		<groar:url>".htmlspecialchars($link->url)."</groar:url>\n";
 
 		// Title must not carry htmlentities
 		echo "		<title>".htmlentities2unicodeentities($link->title)."</title>\n";
@@ -307,7 +307,7 @@ function do_header($title) {
 	echo '	xmlns:dc="http://purl.org/dc/elements/1.1/"'."\n";
 	echo '	xmlns:georss="http://www.georss.org/georss"'."\n";
 	echo '	xmlns:media="http://search.yahoo.com/mrss/"'."\n";
-	echo '	xmlns:meneame="http://meneame.net/faq-es.php"'."\n";
+	echo '	xmlns:groar="http://groar.net/faq-es.php"'."\n";
 	echo ' >'. "\n";
 	echo '<channel>'."\n";
 	echo'	<title>'.$title.'</title>'."\n";
@@ -316,7 +316,7 @@ function do_header($title) {
 	echo"	<image><title>$title</title><link>http://".get_server_name().$home."</link><url>http://".get_static_server_name().$globals['base_url']."img/mnm/eli-rss.png</url></image>\n";
 	echo'	<description>'._('Sitio colaborativo de publicación y comunicación entre blogs').'</description>'."\n";
 	echo'	<pubDate>'.date("r", $last_modified).'</pubDate>'."\n";
-	echo'	<generator>http://blog.meneame.net/</generator>'."\n";
+	echo'	<generator>http://blog.groar.net/</generator>'."\n";
 	echo'	<language>'.$dblang.'</language>'."\n";
 	if ($globals['pubsub'] && $globals['main_published_rss']) {
 		echo '	<atom:link rel="hub" href="'.$globals['pubsub'].'"/>'."\n";
@@ -330,7 +330,7 @@ function do_footer() {
 function check_redirect_to_feedburner($status) {
 	global $globals;
 
-	$regex = '/'.$globals['rss_redirect_user_agent'].'|pubsub|meneame|burner/i';
+	$regex = '/'.$globals['rss_redirect_user_agent'].'|pubsub|groar|burner/i';
 
 	if (SitesMgr::my_id() > 1 || isset($_REQUEST['local']) || isset($_REQUEST['nohtml']) || $globals['bot'] || !$globals['rss_redirect_user_agent'] || preg_match($regex, htmlspecialchars($_SERVER['PHP_SELF'])) || preg_match($regex, $_SERVER['HTTP_USER_AGENT']) ) return;
 	/*|| preg_match('/technoratibot/i', $_SERVER['HTTP_USER_AGENT']) */

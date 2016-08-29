@@ -87,7 +87,7 @@ def parse_logline(line):
         }
 
 	and used as:
-	if $programname == 'meneame_accesslog' then /ssd/meneame_access.log;Connections
+	if $programname == 'groar_accesslog' then /ssd/groar_access.log;Connections
 	& ~
 	"""
 

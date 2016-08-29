@@ -142,7 +142,7 @@ def sendmail(data, to):
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument("--group", "-g", default="web", help="AutoScaler group")
-	parser.add_argument("--annotation", "-a", action="store_true", help="Store data in Meneame database as annotation")
+	parser.add_argument("--annotation", "-a", action="store_true", help="Store data in groar database as annotation")
 	parser.add_argument("--history", "-H", type=int, default=1800, help="History size of CPU load")
 	parser.add_argument("--mail", "-m", help="Send email to this address when took an emergency action")
 	parser.add_argument("--dry", "-d", action="store_true", help="Do not take actions")

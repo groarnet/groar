@@ -1,5 +1,5 @@
 <?php
-// The Meneame source code is Free Software, Copyright (C) 2005-2009 by
+// The Menéame source code is Free Software, Copyright (C) 2005-2009 by
 // Ricardo Galli <gallir at gmail dot com> and Menéame Comunicacions S.L.
 //
 // This program is free software: you can redistribute it and/or modify

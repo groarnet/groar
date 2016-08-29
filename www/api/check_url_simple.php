@@ -15,6 +15,6 @@ header('Content-Type: text/html; charset=UTF-8');
 
 echo '<html>'."\n";
 echo '<body>'."\n";
-echo '<a href="/submit.php?url='.urlencode($_GET['url']).'" title="'._('menéame').'" target="_parent"><img style="border: 0" src="'.$mnm_image.'" name="menéame"/></a>';
+echo '<a href="/submit.php?url='.urlencode($_GET['url']).'" title="'._('groar').'" target="_parent"><img style="border: 0" src="'.$mnm_image.'" name="groar"/></a>';
 echo '</body></html>';
 ?>
