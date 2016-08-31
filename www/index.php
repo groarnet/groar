@@ -154,14 +154,14 @@ function print_index_tabs($option=-1) {
 		foreach ($subs as $sub) {
 			$items[] = array(
 				'id'  => 9999, /* fake number */
-				'url' => 'm/'.$sub->name,
+				'url' => 'gr/'.$sub->name,
 				'selected' => false,
 				'title' => $sub->name,
 			);
 		}
 	}
 
-	$items[] = array('id' => 8, 'url' => '?meta=_*', 'title' => _('m/*'));
+	$items[] = array('id' => 8, 'url' => '?meta=_*', 'title' => _('gr/*'));
 
 	// RSS teasers
 	switch ($option) {

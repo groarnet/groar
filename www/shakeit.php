@@ -157,14 +157,14 @@ function print_shakeit_tabs($option=-1) {
 		foreach ($subs as $sub) {
 			$items[] = array(
 				'id'  => 9999, /* fake number */
-				'url' =>'m/'.$sub->name.'/queue',
+				'url' =>'gr/'.$sub->name.'/queue',
 				'selected' => false,
 				'title' => $sub->name
 			);
 		}
 	}
 
-	$items [] = array('id' => 8, 'url' => 'queue?meta=_*', 'title' => _('m/*'));
+	$items [] = array('id' => 8, 'url' => 'queue?meta=_*', 'title' => _('gr/*'));
 
 	$items[] = array('id' => 3, 'url' => 'queue?meta=_popular', 'title' => _('candidatas'));
 

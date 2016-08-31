@@ -100,13 +100,13 @@
 		<ul id="edlist">
 		{% if this_site.sub %}
 			<li class="selected">
-				<a href="{{ this_site.base_url }}m/{{ this_site.name }}">{{ this_site.name }}</a>
+				<a href="{{ this_site.base_url }}gr/{{ this_site.name }}">{{ this_site.name }}</a>
 			</li>
 		{% endif %}
 		{% for s in sites %}
 			<li {% if s.id == this_site.id %}class="selected"{% endif %}>
 				{% if s.sub AND s.meta %}
-					<a href="//{{ s.server_name }}{{ s.base_url }}m/{{ s.name }} ">{{ s.name_long }}</a>
+					<a href="//{{ s.server_name }}{{ s.base_url }}gr/{{ s.name }} ">{{ s.name_long }}</a>
 				{% else %}
 					<a href="//{{ s.server_name }}{{ s.base_url }}">{{ s.name_long }}</a>
 				{% endif %}
@@ -169,7 +169,7 @@
 
 		{% if this_site.nsfw %}[nsfw]{% endif %}
 		{% if this_site.owner > 0 && current_user.user_id > 0 && (current_user.admin || this_site.owner == current_user.user_id) %}
-			<sup><a title="edit" href="{{ globals.base_url }}m/{{ this_site.name }}/subedit">*</a></sup>
+			<sup><a title="edit" href="{{ globals.base_url }}gr/{{ this_site.name }}/subedit">*</a></sup>
 		{% endif %}
 		{% if this_site.sub %}{% exec print_follow_sub this_site.id as dummy %}{% endif %}
 	  </div>

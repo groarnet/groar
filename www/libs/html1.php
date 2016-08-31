@@ -84,7 +84,7 @@ function do_header($title, $id='home', $options = false) {
 	$this_site_properties = SitesMgr::get_extended_properties();
 
 	if ($this_site->sub) {
-		$this_site->url = $this_site->base_url.'m/'.$this_site->name;
+		$this_site->url = $this_site->base_url.'gr/'.$this_site->name;
 	} else {
 		$this_site->url = $this_site->base_url;
 	}
@@ -123,7 +123,7 @@ function do_header($title, $id='home', $options = false) {
 		$left_options[] = new MenuOption(_('destacadas'), $globals['base_url'].'top_active', $id, _('historias más activas'));
 
 		$right_options = array();
-		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub groars'));
+		$right_options[] = new MenuOption(_('gr/'), $globals['base_url_general'].'subs', $id, _('sub groars'));
 		$right_options[] = new MenuOption(_('fisgona'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
 		$right_options[] = new MenuOption(_('nótame'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
 		$right_options[] = new MenuOption(_('galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
@@ -133,7 +133,7 @@ function do_header($title, $id='home', $options = false) {
 		//$right_options[] = new MenuOption(_('portada'), $globals['base_url'], '', _('página principal'));
 		$right_options[] = new MenuOption(_('nuevas'), $globals['base_url'].'queue', '', _('menear noticias pendientes'));
 
-		$right_options[] = new MenuOption(_('m/'), $globals['base_url_general'].'subs', $id, _('sub groars'));
+		$right_options[] = new MenuOption(_('gr/'), $globals['base_url_general'].'subs', $id, _('sub groars'));
 		$right_options[] = new MenuOption(_('fisgona'), $globals['base_url'].'sneak', $id, _('visualizador en tiempo real'));
 		$right_options[] = new MenuOption(_('nótame'), post_get_base_url(), $id, _('leer o escribir notas y mensajes privados'));
 		$right_options[] = new MenuOption(_('galería'), 'javascript:fancybox_gallery(\'all\');', false, _('las imágenes subidas por los usuarios'));
