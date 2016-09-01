@@ -15,7 +15,7 @@ font-size: 16px;
 
 #variable {
 min-width: 0;
-margin-top: 40px;
+margin-top: 54px;
 }
 
 #header{
@@ -27,7 +27,7 @@ position: fixed;
 top: 0px;
 left: 0px;
 width: 100%;
-height:40px;
+height:54px;
 z-index: 10;
 }
 
@@ -59,7 +59,7 @@ background-position: 5px -225px;
 }
 
 #header-top .logo-mnm {
-margin-top: 10px;
+margin-top: 0px;
 }
 
 #header-top #notifier {
@@ -91,7 +91,7 @@ margin-top:5px;
 }
 
 
-#header-center, #header-menu, #sidebar, #edlist, .logo-ed, .wideonly, .wide {
+#header-center, #header-menu, #sidebar, #edlist, .logo-ed, .wideonly, .wide, .searchform {
 display: none;
 background: none !important;
 }

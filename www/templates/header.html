@@ -114,11 +114,28 @@
 				{% endif %}
 			</li>
 		{% endfor %}
+		
+					{% for o in right_options %}
+				<li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
+			{% endfor %}
 		</ul>
 	{% endif %}
 
   {% include "header_userinfo.html" %}
-</div>
+
+  	<!--search-->
+	  <div id="searchform" class="searchform">
+		<form action="{{ globals.base_url }}search" method="get" name="top_search">
+			{% if globals.search_options %}
+				{% for name, value in globals.search_options %}
+					<input type="hidden" name="{{name}}" value="{{value}}"/>
+				{% endfor %}
+			{% endif %}
+			<input class="searchbox" placeholder="Buscar en {{ this_site.name }}" name="q" type="search" {% if globals.q %}value="{{globals.q|escape}}"{% endif %}/>
+		</form>
+	  </div>
+	<!--end search-->
+  </div>
 
 <div id="variable">
 {% else %} {# PARTIAL partial #}
@@ -152,7 +169,7 @@
 		</div>
 	{% endif %}
 
-
+{% if this_site.sub %}
 	<div id="header-center"
 		style="{% if this_site.color1 %}color:{{ this_site.color1 }};{% endif %}{% if this_site.color2 %}background-color:{{ this_site.color2 }};{% endif %}">
 
@@ -196,21 +213,10 @@
 		{% endif %}
 	  </div>
 
-	<!--search-->
-	  <div id="searchform" class="searchform">
-		<form action="{{ globals.base_url }}search" method="get" name="top_search">
-			{% if globals.search_options %}
-				{% for name, value in globals.search_options %}
-					<input type="hidden" name="{{name}}" value="{{value}}"/>
-				{% endfor %}
-			{% endif %}
-			<input class="searchbox" name="q" type="search" {% if globals.q %}value="{{globals.q|escape}}"{% endif %}/>
-		</form>
-	  </div>
-	<!--end search-->
+
 
 	</div><!--header-center-->
-
+{% endif %}
 	<div id="header-menu">
 		<div class="header-menu01">
 		<ul class="menu01-itemsl">
@@ -220,13 +226,14 @@
 		</ul>
 
 			<ul class="menu01-itemsr">
-			{% for o in right_options %}
+			{% for o in downright_options %}
 				<li {% if o.selected %}class="selected"{% endif %} title="{{ o.title }}"><a href="{{ o.url }}">{{ o.text }}</a></li>
 			{% endfor %}
-
+{#
 			{% if globals.help_url %}
 				<li><a href="{{ globals.help_url }}" title="{% trans _('ayuda para principiantes') %}"><b>?</b></a></li>
 			{% endif %}
+#}
 			</ul>
 
 		</div>
